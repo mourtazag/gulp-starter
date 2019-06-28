@@ -19,7 +19,7 @@
 - cd gulp
 - npm run svg
 
-# TODO
+## TODO
 
 - Update and clean forms boilerplate
 
