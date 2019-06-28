@@ -18,3 +18,8 @@
 - Add icon file in src/images/icons/
 - cd gulp
 - npm run svg
+
+# TODO
+
+- Update and clean forms boilerplate
+
