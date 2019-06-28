@@ -6,7 +6,6 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
-const cssmin = require('gulp-cssmin');
 const cssnano = require('gulp-cssnano');
 const gulpStylelint = require('gulp-stylelint');
 //const purgecss = require('gulp-purgecss');

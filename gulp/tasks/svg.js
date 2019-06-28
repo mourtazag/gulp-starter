@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const rename = require('gulp-rename');
 const svgSymbols = require('gulp-svg-symbols');
 const svgmin = require('gulp-svgmin');
-const config = require('../config');
 
 const app = require('../config.js');
 const pathes = {
