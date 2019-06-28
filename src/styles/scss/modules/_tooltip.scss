@@ -1,0 +1,17 @@
+.tooltip {
+	padding: 1.5rem;
+	color: white;
+	background: var(--color2);
+	font-family: var(--regular);
+	font-size: 1.4rem;
+	position: relative;
+
+	&::before {
+		content: '';
+		@include triangle(top, 1.5rem, 0.8rem, var(--color2));
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}

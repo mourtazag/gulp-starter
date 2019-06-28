@@ -1,0 +1,162 @@
+/*scss**********************************
+  _ )  _ \  __|    \    |  /  _ \  _ \ _ _|   \ | __ __| __|
+  _ \    /  _|    _ \   . <   __/ (   |  |   .  |    | \__ \
+ ___/ _|_\ ___| _/  _\ _|\_\ _|  \___/ ___| _|\_|   _| ____/
+
+Custom Breakpoints rules
+***********************************/
+$xl: 1620px;
+$l: 1110px;
+$m: 992px;
+$s: 768px;
+$xs: 480px;
+$xxs: 320px;
+
+$base-font-size: 16px;
+
+@function em($px, $base: $base-font-size) {
+	@return ($px / $base) * 1em;
+}
+
+// @function rem($px, $base: $base-font-size) {
+//     @return ($px / $base) * 1rem;
+// }
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@mixin fluidfont($min-font-size, $max-font-size, $min-vw: 320px, $max-vw: $l) {
+	$u1: unit($min-vw);
+	$u2: unit($max-vw);
+	$u3: unit($min-font-size);
+	$u4: unit($max-font-size);
+
+	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+		& {
+			font-size: $min-font-size;
+			@media screen and (min-width: $min-vw) {
+				font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+			}
+			@media screen and (min-width: $max-vw) {
+				font-size: $max-font-size;
+			}
+		}
+	}
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+	&:-moz-placeholder {
+		@content;
+	}
+}
+
+@mixin absolute {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+@mixin fixed {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+@mixin triangle($direction, $width, $height, $color) {
+	display: block;
+	width: 0;
+	height: 0;
+
+	@if $direction == top {
+		border-left: ($width / 2) solid transparent;
+		border-right: ($width / 2) solid transparent;
+		border-bottom: $height solid $color;
+	}
+
+	@if $direction == bottom {
+		border-left: ($width / 2) solid transparent;
+		border-right: ($width / 2) solid transparent;
+		border-top: $height solid $color;
+	}
+
+	@if $direction == left {
+		border-top: ($height / 2) solid transparent;
+		border-bottom: ($height / 2) solid transparent;
+		border-right: $width solid $color;
+	}
+
+	@if $direction == right {
+		border-top: ($height / 2) solid transparent;
+		border-bottom: ($height / 2) solid transparent;
+		border-left: $width solid $color;
+	}
+}
+
+/*scss**********************************
+   \  |  _ \      \  | _ _| \ \  / _ _|   \ |   __|
+  |\/ |  |  |    |\/ |   |   >  <    |   .  | \__ \
+ _|  _| ___/    _|  _| ___|  _/\_\ ___| _|\_| ____/
+
+Media Queries mixins depending on breakpoints
+***********************************/
+
+@mixin bp($point, $point2: '') {
+	@if $point == xl {
+		@media (min-width: $xl) {
+			@content;
+		}
+	} @else if $point == l {
+		@media (min-width: $l) {
+			@content;
+		}
+	} @else if $point == m {
+		@media (min-width: $m) {
+			@content;
+		}
+	} @else if $point == s {
+		@media (min-width: $s) {
+			@content;
+		}
+	} @else if $point == xs {
+		@media (min-width: $xs) {
+			@content;
+		}
+	} @else if $point == touchdevice {
+		@media (hover: none) and (pointer: coarse) {
+			@content;
+		}
+	} @else if $point == ie101 {
+		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+			@content;
+		}
+	} @else if $point == edge {
+		@supports (-ms-ime-align: auto) {
+			@content;
+		}
+	} @else {
+		@if $point2 != '' {
+			// min and max-width mediaquery
+			@media (min-width: $point) and (max-width: $point2) {
+				@content;
+			}
+		} @else {
+			// min-width mediaquery
+			@media (min-width: $point) {
+				@content;
+			}
+		}
+	}
+}

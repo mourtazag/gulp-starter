@@ -1,0 +1,48 @@
+{
+	"name": "kuult-gulp-starter",
+	"version": "1.0.0",
+	"private": true,
+	"devDependencies": {
+		"browser-sync": "^2.26.7",
+		"cli-color": "^1.4.0",
+		"del": "^2.2.2",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^3.1.1",
+		"gulp-cache": "^0.4.6",
+		"gulp-combine-mq": "^0.4.0",
+		"gulp-cssmin": "^0.2.0",
+		"gulp-eslint": "^3.0.1",
+		"gulp-filter": "^4.0.0",
+		"gulp-imagemin": "^3.0.3",
+		"gulp-inject-partials": "^1.0.3",
+		"gulp-notify": "^2.2.0",
+		"gulp-plumber": "^1.1.0",
+		"gulp-purgecss": "^1.0.0",
+		"gulp-sass": "^3.1.0",
+		"gulp-sourcemaps": "^1.6.0",
+		"gulp-stylelint": "^8.0.0",
+		"gulp-svg-symbols": "^3.2.3",
+		"gulp-svgo": "^1.5.4",
+		"gulp-util": "^3.0.7",
+		"imagemin-mozjpeg": "^6.0.0",
+		"imagemin-pngquant": "^5.0.0",
+		"include-media": "^1.4.9",
+		"minimist": "^1.2.0",
+		"node-sass": "^4.8.1",
+		"require-dir": "^0.3.0",
+		"run-sequence": "^1.2.2",
+		"stylelint": "^9.9.0",
+		"stylelint-config-recommended": "^2.1.0",
+		"vinyl-buffer": "^1.0.0",
+		"vinyl-source-stream": "^1.1.0"
+	},
+	"dependencies": {
+		"gulp-svgmin": "^2.1.0",
+		"gulp-twig": "^1.2.0"
+	},
+	"scripts": {
+		"gulp": "node node_modules/gulp/bin/gulp.js",
+		"build": "node node_modules/gulp/bin/gulp.js build",
+		"svg": "node node_modules/gulp/bin/gulp.js svg"
+	}
+}

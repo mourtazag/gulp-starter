@@ -1,0 +1,130 @@
+@import "_form-select-input.scss";
+@import "_form-radio-input.scss";
+@import "_form-checkbox-input.scss";
+
+
+.form-bloc {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-bottom: 2rem;
+}
+
+.form-row {
+	display: block;
+
+	.form-bloc {
+		flex: 1 0 50%;
+		/* flex: 1 0 50%; */
+		margin-bottom: 3rem;
+
+		input {
+			margin-top: 2rem;
+		}
+
+		&:nth-child(odd) {
+			padding-right: 0;
+			
+			@include bp(s) {
+				padding-right: 1.5rem;
+			}
+		}
+
+		&:nth-child(even) {
+			padding-left: 0;
+			
+			@include bp(s) {
+				padding-left: 1.5rem;
+			}
+		}
+	}
+	@include bp(s) {
+		display: flex;
+	}
+
+	beautiful-select {
+		width: 100%;
+	}
+}
+
+textarea.form-control {
+	min-height: 15rem;
+ }
+
+
+ .form-control--s,
+ .form-control {
+    width: 100%;
+    height: 5rem;
+    padding-left: 1.6rem;
+    border: 1px solid #E3E3E3;
+    border-radius: .6rem;
+    color: #131313;
+    background: white;
+    font-size: 1.6rem;
+    line-height: 1;
+    -webkit-appearance: none;
+    transition: border .2s ease-out;
+
+    @include placeholder() {
+        color: var(--color3);
+        font-size: 1.6rem;
+    }
+    
+    .form-bloc.form-error & {
+        border: 1px solid #AA1313;
+    }
+}
+
+.form-control--s {
+    height: 3.4rem;
+}
+ 
+
+.collapsed-form-bloc {
+    display: flex;
+    align-items: flex-start;
+
+    .form-control {
+        width: rem(185px);
+        height: 5rem;
+        padding-left: rem(5px);
+        border-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        @include bp(m) {
+            width: 100%;
+        }
+    }
+
+    button {
+        flex: 0 0 5rem;
+        width: 5rem;
+        height: 5rem;
+        border-top-right-radius: .6rem;
+        border-bottom-right-radius: .6rem;
+        color: #fff;
+        background: var(--color1);
+        font-size: rem(16px);
+        text-transform: uppercase;
+    }
+}
+
+.form-error-message {
+    margin-top: .5rem;
+    color: #AA1313;
+    font-size: 1.2rem;
+}
+
+.form-message {
+    padding: 2rem 2rem;
+    margin-bottom: 4rem;
+    border-radius: .6rem;
+}
+
+.form-message--error {
+    @extend .form-message;
+    color: #AA1313;
+    background: #F8C2C2;
+}
