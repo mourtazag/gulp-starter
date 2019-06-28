@@ -1,11 +1,13 @@
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync').create();
+const util = require('gulp-util');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const cssmin = require('gulp-cssmin');
+const cssnano = require('gulp-cssnano');
 const gulpStylelint = require('gulp-stylelint');
 //const purgecss = require('gulp-purgecss');
 
@@ -29,18 +31,18 @@ gulp.task('styles', function() {
 	return (
 		gulp
 			.src(pathes.src)
-			.pipe(sourcemaps.init())
+			.pipe(global.build ? sourcemaps.init() : util.noop())
 			.pipe(plumber({ errorHandler: customErrorHandler }))
 			.pipe(sass(sassOptions))
 			.pipe(autoprefixer(autoprefixerOptions))
-			.pipe(sourcemaps.write())
+			.pipe(global.build ? sourcemaps.write() : util.noop())
 			.pipe(
 				gulpStylelint({
 					reporters: [{ formatter: 'string', console: true }]
 				})
 			)
 			.pipe(global.build ? gulp.dest(pathes.build) : gulp.dest(pathes.dest))
-			.pipe(cssmin())
+			.pipe(cssnano())
 			.pipe(rename({ suffix: '.min' }))
 			.pipe(global.build ? gulp.dest(pathes.build) : gulp.dest(pathes.dest))
 			//.pipe(gulp.dest(pathes.dev))
