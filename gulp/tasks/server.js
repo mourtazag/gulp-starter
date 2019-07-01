@@ -7,7 +7,7 @@ const app = require('../config.js');
 const pathes = {
 	html: app().pathes.src + '/html/**/*.html',
 	scss: app().pathes.src + '/styles/**/*.scss',
-	js: app().pathes.src + '/js/**/*.js',
+	js: app().pathes.src + '/scripts/**/*.js',
 	fonts: app().pathes.src + '/fonts/**/*',
 	images: [app().pathes.src + '/images/**/*.{jpg,png,gif,svg,jpeg}', '!' + app().pathes.src + '/images/icons'],
 	svg: app().pathes.src + '/images/icons/**/*.svg'

@@ -4,7 +4,7 @@ const plumber = require('gulp-plumber');
 
 const app = require('../config.js');
 const pathes = {
-	src: app().pathes.src + '/js/**/*.js',
+	src: app().pathes.src + '/scripts/**/*.js',
 	dest: app().pathes.dest + '/static/js',
 	build: app().pathes.build + '/static/js'
 };
