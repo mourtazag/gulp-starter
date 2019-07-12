@@ -10,7 +10,7 @@ pathes = {
 	build: app().pathes.build + '/static/images'
 };
 
-gulp.task('images', ['svg'], function() {
+gulp.task('images', ['svg', 'videos'], function() {
 	if (global.build) console.log(global.build ? title('--- Building IMAGES') : '');
 	console.log(title('--- - Images processing'));
 

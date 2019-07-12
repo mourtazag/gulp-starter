@@ -10,10 +10,11 @@ const pathes = {
 	js: app().pathes.src + '/scripts/**/*.js',
 	fonts: app().pathes.src + '/fonts/**/*',
 	images: [app().pathes.src + '/images/**/*.{jpg,png,gif,svg,jpeg}', '!' + app().pathes.src + '/images/icons'],
-	svg: app().pathes.src + '/images/icons/**/*.svg'
+	svg: app().pathes.src + '/images/icons/**/*.svg',
+	videos: app().pathes.src + '/images/**/*.mp4'
 };
 
-gulp.task('server', ['styles', 'html', 'scripts', 'fonts', 'images', 'svg'], function() {
+gulp.task('server', ['styles', 'html', 'scripts', 'fonts', 'images', 'svg', 'videos'], function() {
 	browserSync.init(app().browserSync);
 	gulp.watch(pathes.html, [['styles', 'html'], reload]);
 	gulp.watch(pathes.scss, ['styles', reload]);
@@ -21,5 +22,6 @@ gulp.task('server', ['styles', 'html', 'scripts', 'fonts', 'images', 'svg'], fun
 	gulp.watch(pathes.fonts, ['fonts', reload]);
 	gulp.watch(pathes.images, ['images', reload]);
 	gulp.watch(pathes.svg, ['svg', reload]);
+	gulp.watch(pathes.videos, ['videos', reload]);
 	//gulp.watch(config.images.src, ['copy:images', reload]);
 });
