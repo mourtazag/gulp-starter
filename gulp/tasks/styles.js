@@ -41,7 +41,7 @@ gulp.task('styles', function() {
 				})
 			)
 			.pipe(global.build ? gulp.dest(pathes.build) : gulp.dest(pathes.dest))
-			.pipe(cssnano())
+			.pipe(cssnano({ minifyFontValues: false, discardUnused: false }))
 			.pipe(rename({ suffix: '.min' }))
 			.pipe(global.build ? gulp.dest(pathes.build) : gulp.dest(pathes.dest))
 			//.pipe(gulp.dest(pathes.dev))
