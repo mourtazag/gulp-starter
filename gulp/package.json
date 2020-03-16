@@ -28,7 +28,7 @@
 		"imagemin-mozjpeg": "^8.0.0",
 		"imagemin-pngquant": "^8.0.0",
 		"include-media": "^1.4.9",
-		"minimist": "^1.2.0",
+		"minimist": "^1.2.2",
 		"natives": "^1.1.6",
 		"node-sass": "^4.12.0",
 		"require-dir": "^0.3.0",
