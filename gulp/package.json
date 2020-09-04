@@ -30,7 +30,7 @@
 		"include-media": "^1.4.9",
 		"minimist": "^1.2.0",
 		"natives": "^1.1.6",
-		"node-sass": "^4.12.0",
+		"node-sass": "^4.13.1",
 		"require-dir": "^0.3.0",
 		"run-sequence": "^1.2.2",
 		"stylelint": "^9.9.0",
